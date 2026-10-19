@@ -1,5 +1,5 @@
 window.COURSE = {
-id:'languages', kicker:'Sheehan Academy · Adult course 2', title:'Speak Any Language: The Method + Spanish Starter',
+id:'languages-method', kicker:'Sheehan Academy · Adult course 2', title:'Language Method Guide (v1) + Spanish Starter',
 pitch:'A busy adult\'s method for learning any language fast: learn the words that matter most, let a free app remember them for you, listen to things you can almost understand, and start speaking in week one. Then put it to work in a Spanish starter track built for real life in Northeast Florida.',
 hours:'about 10–14 hours of lessons, plus 20–30 min of daily practice',
 cliff:[
@@ -10,7 +10,7 @@ cliff:[
  'Speak from week one with a tutor or partner. Mistakes are the curriculum.',
  'Spanish is by far the most common language after English in Florida. It is useful at work, at events and with neighbors.'
 ],
-extra:'<h2>Starter kit</h2><div class="grid"><a class="tile" href="spanish-starter-deck.csv" download><div class="num">DOWNLOAD</div><h3>Spanish starter deck (CSV)</h3><p>116 high-frequency words and survival phrases, ready to import into Anki (File → Import).</p><div class="meta"><span>free</span><span>CSV</span></div></a><a class="tile" href="#m11"><div class="num">PLAN</div><h3>Your 90-day routine</h3><p>The daily 20–30 minute plan and how to reuse the method for any next language.</p><div class="meta"><span>Module 11</span><span>open</span></div></a></div>',
+extra:'<h2>Starter kit</h2><div class="grid"><a class="tile" href="../spanish-starter-deck.csv" download><div class="num">DOWNLOAD</div><h3>Spanish starter deck (CSV)</h3><p>116 high-frequency words and survival phrases, ready to import into Anki (File → Import).</p><div class="meta"><span>free</span><span>CSV</span></div></a><a class="tile" href="#m11"><div class="num">PLAN</div><h3>Your 90-day routine</h3><p>The daily 20–30 minute plan and how to reuse the method for any next language.</p><div class="meta"><span>Module 11</span><span>open</span></div></a></div>',
 modules:[
 {title:'How Adults Actually Learn Languages', time:'40 min', tile:'Why school-style learning failed you, what research says works, and a 20–30 minute daily routine that fits a busy life.',
 cliff:['Adults are good language learners: better at patterns, vocabulary strategy and discipline than kids.','You acquire a language mostly by understanding messages, not by memorizing grammar tables.','Daily beats weekly: 20–30 minutes every day outperforms a 3-hour Saturday.','Track hours, not feelings. Progress is invisible for weeks, then sudden.'],
@@ -33,7 +33,7 @@ res:[['Krashen: Principles and Practice in Second Language Acquisition (free PDF
 cliff:['Language follows the 80/20 rule: a small set of words appears constantly.','The top 100 words are mostly little glue words (the, of, to, is). The next 900 carry most daily meaning.','Learn words in short phrases, not alone: "¿puedo tocarlo?" beats "poder".','Learn your words first: the ones you need for your job, family and hobbies.'],
 lessons:[
 {t:'Why frequency first', b:'<p>Word use is extremely lopsided. A list of roughly the top 1,000 words, learned well, covers a large majority of the words in everyday conversation, while word number 10,000 might appear once in a book. So the first thousand words give the biggest return on your time. Grammar sticks better once you know enough words to hear it in use.</p>', key:'The first 1,000 words pay the most.'},
-{t:'Where to get good lists', b:'<ul><li>Wiktionary frequency lists (free, many languages).</li><li>Premade "top words" Anki decks (search the shared decks).</li><li>Our <a href="spanish-starter-deck.csv">116-word Spanish starter deck</a> with phrases for families and events.</li><li>Your personal list: words you needed this week and didn\'t know.</li></ul>', key:'Frequency list + your personal list.'},
+{t:'Where to get good lists', b:'<ul><li>Wiktionary frequency lists (free, many languages).</li><li>Premade "top words" Anki decks (search the shared decks).</li><li>Our <a href="../spanish-starter-deck.csv">116-word Spanish starter deck</a> with phrases for families and events.</li><li>Your personal list: words you needed this week and didn\'t know.</li></ul>', key:'Frequency list + your personal list.'},
 {t:'Learn in chunks, not single words', b:'<p>A chunk is a short phrase you can use as one piece: <i>me gusta</i> (I like), <i>¿cuánto cuesta?</i> (how much is it?), <i>tengo que…</i> (I have to…). Chunks carry grammar for free. You can say "tengo que irme" (I have to go) long before you can explain the reflexive pronoun in it.</p>', key:'Chunks are grammar you can use before you understand it.'},
 {t:'Make words stick: picture, sound, use', b:'<p>For each word: hear it said by a native speaker (Forvo, SpanishDict audio), attach a picture or a personal memory instead of an English translation where you can, and use it in one sentence about your own life within 24 hours. Personal and vivid beats repeated and boring.</p>', key:'Hear it, picture it, use it today.'}
 ],
@@ -44,7 +44,7 @@ quiz:[
 {q:'Best way to make a word stick?',a:['Read it in a list 20 times','Hear it, link it to a picture or memory, use it today','Write the English 10 times'],c:1,why:'Sound, image and use make strong memories.'},
 {q:'Your personal word list should include…',a:['Words you needed this week and didn\'t know','Only words from a textbook','Rare literary words'],c:0,why:'Relevance boosts memory and usefulness.'}
 ],
-res:[['Wiktionary frequency lists','https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists','Free frequency lists for many languages.'],['SpanishDict','https://www.spanishdict.com/','Dictionary with audio, examples and conjugations.'],['WordReference','https://www.wordreference.com/','Dictionary plus forums for tricky phrases.'],['Forvo','https://forvo.com/','Native-speaker pronunciations of almost any word.'],['Spanish starter deck (CSV)','spanish-starter-deck.csv','Our 116-word starter set.']]},
+res:[['Wiktionary frequency lists','https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists','Free frequency lists for many languages.'],['SpanishDict','https://www.spanishdict.com/','Dictionary with audio, examples and conjugations.'],['WordReference','https://www.wordreference.com/','Dictionary plus forums for tricky phrases.'],['Forvo','https://forvo.com/','Native-speaker pronunciations of almost any word.'],['Spanish starter deck (CSV)','../spanish-starter-deck.csv','Our 116-word starter set.']]},
 
 {title:'Spaced Repetition: Remember More, Review Less', time:'45 min', tile:'Let Anki schedule your reviews so you remember thousands of words with about 15 minutes a day.',
 cliff:['We forget fast, but each well-timed review makes the memory last longer.','Anki (free) shows each card right before you would forget it.','Make cards small: one fact per card, with audio and pictures.','Add 5–15 new cards a day and always do your reviews first.'],
@@ -146,7 +146,7 @@ quiz:[
 {q:'"¿Cuánto cuesta?" means…',a:['Where is it?','How much does it cost?','What time is it?'],c:1,why:'cuánto = how much.'},
 {q:'"Tengo dos hijos" means…',a:['I have two kids','I am two kids','I want two kids'],c:0,why:'tener = to have.'}
 ],
-res:[['SpanishDict','https://www.spanishdict.com/','Look up and hear any phrase.'],['Coffee Break Spanish','https://coffeebreaklanguages.com/coffeebreakspanish/','Survival Spanish in short episodes.'],['BBC Languages: Spanish (archive)','https://www.bbc.co.uk/languages/spanish/','Free beginner phrases and audio.'],['Spanish starter deck (CSV)','spanish-starter-deck.csv','Import into Anki.']]},
+res:[['SpanishDict','https://www.spanishdict.com/','Look up and hear any phrase.'],['Coffee Break Spanish','https://coffeebreaklanguages.com/coffeebreakspanish/','Survival Spanish in short episodes.'],['BBC Languages: Spanish (archive)','https://www.bbc.co.uk/languages/spanish/','Free beginner phrases and audio.'],['Spanish starter deck (CSV)','../spanish-starter-deck.csv','Import into Anki.']]},
 
 {title:'Spanish Starter 2: Work, Farm and Family', time:'60 min', tile:'Phrases for real situations in NE Florida: welcoming families, giving safety instructions, kids and animals, and helping with directions.',
 cliff:['Learn the 20 phrases your actual work and life need.','Safety and instructions use simple commands: lávense, toquen, esperen.','Kids respond to warmth and simple words: muy bien, ¡qué bonito!, con cuidado.','Write your own phrase sheet and laminate it for events.'],

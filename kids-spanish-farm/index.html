@@ -1,0 +1,227 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Farm Animals in Spanish · Test lesson</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐐</text></svg>">
+<meta name="theme-color" content="#7cc04f">
+<style>
+:root{--grass:#7cc04f;--sky:#e8f6ff;--barn:#c8423b;--sun:#ffd23f;--ink:#26331d;--ok:#2fa84f;--no:#e24b4b}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:"Trebuchet MS",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(#e8f6ff 0,#e8f6ff 60%,#cfeeb8 100%);color:var(--ink);min-height:100vh}
+header{background:var(--barn);color:#fff;padding:14px 16px 10px;text-align:center;border-bottom:6px solid #8e2b26}
+h1{margin:0;font-size:clamp(22px,6vw,32px);letter-spacing:.5px}
+header p{margin:4px 0 0;font-size:15px;opacity:.95}
+.tabs{display:flex;gap:8px;justify-content:center;padding:12px 10px 4px;flex-wrap:wrap;position:sticky;top:0;background:#e8f6ffee;z-index:3}
+.tab{font:inherit;font-size:18px;font-weight:800;border:0;border-radius:999px;padding:12px 18px;background:#fff;color:var(--ink);box-shadow:0 3px 0 #b9cfdd;cursor:pointer;min-height:48px}
+.tab.on{background:var(--sun);box-shadow:0 3px 0 #c9a100}
+.toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px auto 2px;font-weight:700;font-size:16px}
+.switch{position:relative;width:58px;height:32px;border-radius:999px;background:#c7d3db;border:0;cursor:pointer}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:left .15s}
+.switch[aria-checked=true]{background:var(--grass)}.switch[aria-checked=true]::after{left:29px}
+main{max-width:760px;margin:0 auto;padding:10px 12px 40px}
+section{display:none}section.on{display:block}
+.hint{text-align:center;font-size:16px;margin:6px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.card{background:#fff;border-radius:22px;padding:12px 10px;text-align:center;box-shadow:0 5px 0 #b9cfdd;border:3px solid transparent}
+.card.heard{border-color:#bde3a6}
+.emo{font-size:64px;line-height:1.1;display:block;cursor:pointer;user-select:none}
+.word{font-size:24px;font-weight:800;margin:4px 0 0}
+.en{font-size:14px;color:#5b6b52;margin-bottom:8px}
+.say{font:inherit;font-size:18px;font-weight:800;border:0;border-radius:16px;background:var(--grass);color:#fff;padding:12px 10px;width:100%;min-height:52px;cursor:pointer;box-shadow:0 4px 0 #4f8a2c}
+.say:active,.tab:active,.big:active{transform:translateY(2px);box-shadow:none}
+.other{display:none;margin-top:8px;text-align:left;font-size:14.5px;border-top:2px dashed #e1e8ec;padding-top:6px}
+body.multi .other{display:block}
+.other button{display:flex;width:100%;justify-content:space-between;gap:6px;font:inherit;font-size:15px;background:none;border:0;padding:5px 2px;cursor:pointer;color:var(--ink);text-align:left}
+.other button b{font-weight:800}
+.other small{display:block;color:#6b7a63;font-size:12px;margin-top:4px}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.col{display:grid;gap:10px}
+.m{font:inherit;border:0;border-radius:18px;background:#fff;min-height:70px;font-size:22px;font-weight:800;box-shadow:0 4px 0 #b9cfdd;cursor:pointer;color:var(--ink);padding:6px}
+.m.e{font-size:44px}
+.m.sel{outline:5px solid var(--sun)}
+.m.done{background:#d9f5d0;box-shadow:0 4px 0 #8cc97b;opacity:.75;cursor:default}
+.m.bad{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.win{display:none;text-align:center;background:#fff;border-radius:22px;padding:16px;margin-top:14px;box-shadow:0 5px 0 #b9cfdd}
+.win.on{display:block}
+.win .huge{font-size:56px}
+.big{font:inherit;font-size:20px;font-weight:800;border:0;border-radius:18px;background:var(--sun);color:var(--ink);padding:14px 22px;min-height:56px;cursor:pointer;box-shadow:0 4px 0 #c9a100;margin:6px}
+.q{background:#fff;border-radius:22px;padding:14px;text-align:center;box-shadow:0 5px 0 #b9cfdd}
+.qnum{font-weight:800;color:#5b6b52}
+.qtext{font-size:26px;font-weight:800;margin:6px 0}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.qo{font:inherit;font-size:60px;border:0;border-radius:20px;background:#f2f8fb;min-height:110px;cursor:pointer;box-shadow:0 4px 0 #c9d9e3}
+.qo.right{background:#c9f0bf;box-shadow:0 4px 0 #7fc46a}.qo.wrong{background:#ffd3d3;box-shadow:0 4px 0 #e08f8f}
+.fb{font-size:22px;font-weight:800;min-height:34px;margin-top:10px}
+.stars{font-size:40px;letter-spacing:4px}
+.dots{display:flex;justify-content:center;gap:6px;margin:6px 0}
+.dots i{width:14px;height:14px;border-radius:50%;background:#d6e2e9;display:block}.dots i.ok{background:var(--ok)}.dots i.no{background:var(--no)}
+.note{font-size:13px;color:#5b6b52;text-align:center;margin-top:18px}
+.nosound{display:none;background:#fff4c2;border-radius:14px;padding:8px 12px;text-align:center;font-size:14px;margin:6px auto;max-width:520px}
+</style></head><body>
+<header><h1>🐾 Farm Animals in Spanish</h1><p>Los animales de la granja · Sheehan Homestead test lesson</p></header>
+<div class="tabs" role="tablist">
+  <button class="tab on" data-s="learn" role="tab">🐾 Learn</button>
+  <button class="tab" data-s="match" role="tab">🧩 Match</button>
+  <button class="tab" data-s="quiz" role="tab">⭐ Quiz</button>
+</div>
+<div class="toggle"><span>🌍 Other languages</span><button class="switch" id="multi" role="switch" aria-checked="false" aria-label="Show Italian, Portuguese, French and Latin"></button></div>
+<div class="nosound" id="nosound">This browser can't play the voices. You can still read the words and play the games.</div>
+<main>
+  <section id="learn" class="on">
+    <p class="hint">Tap an animal or 🔊 to hear it in Spanish. Turn on 🌍 to see the word in other languages.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+  <section id="match">
+    <p class="hint">Tap an animal, then tap its Spanish name.</p>
+    <div class="match"><div class="col" id="mcolA"></div><div class="col" id="mcolB"></div></div>
+    <div class="win" id="mwin"><div class="huge">🎉</div><h2>¡Muy bien!</h2><p id="mmsg"></p><button class="big" id="magain">Play again</button></div>
+  </section>
+  <section id="quiz">
+    <div class="q" id="qbox"></div>
+  </section>
+  <p class="note">Test lesson v1 · Voices come from your device (Spanish es-MX, or es-ES if es-MX isn't available) · Progress is saved on this device only.</p>
+</main>
+<script>
+// ---------- Data ----------
+const A = [
+ {es:'el conejo',  en:'rabbit',  e:'🐰', it:'il coniglio', pt:'o coelho',   fr:'le lapin',   la:'cuniculus'},
+ {es:'la gallina', en:'hen',     e:'🐔', it:'la gallina',  pt:'a galinha',  fr:'la poule',   la:'gallina'},
+ {es:'el gallo',   en:'rooster', e:'🐓', it:'il gallo',    pt:'o galo',     fr:'le coq',     la:'gallus'},
+ {es:'el pollito', en:'chick',   e:'🐥', it:'il pulcino',  pt:'o pintinho', fr:'le poussin', la:'pullus'},
+ {es:'la cabra',   en:'goat',    e:'🐐', it:'la capra',    pt:'a cabra',    fr:'la chèvre',  la:'capra'},
+ {es:'la oveja',   en:'sheep',   e:'🐑', it:'la pecora',   pt:'a ovelha',   fr:'le mouton',  la:'ovis'},
+ {es:'la vaca',    en:'cow',     e:'🐄', it:'la mucca',    pt:'a vaca',     fr:'la vache',   la:'vacca'},
+ {es:'el caballo', en:'horse',   e:'🐴', it:'il cavallo',  pt:'o cavalo',   fr:'le cheval',  la:'equus'},
+ {es:'el cerdo',   en:'pig',     e:'🐷', it:'il maiale',   pt:'o porco',    fr:'le cochon',  la:'porcus'},
+ {es:'el pato',    en:'duck',    e:'🦆', it:"l'anatra",    pt:'o pato',     fr:'le canard',  la:'anas'},
+ {es:'el perro',   en:'dog',     e:'🐶', it:'il cane',     pt:'o cão',      fr:'le chien',   la:'canis'},
+ {es:'el gato',    en:'cat',     e:'🐱', it:'il gatto',    pt:'o gato',     fr:'le chat',    la:'feles'},
+ {es:'el burro',   en:'donkey',  e:'🫏', it:"l'asino",     pt:'o burro',    fr:"l'âne",      la:'asinus'}
+];
+const LANGS = [['it','🇮🇹','Italian','it-IT'],['pt','🇧🇷','Portuguese','pt-BR'],['fr','🇫🇷','French','fr-FR'],['la','🏛️','Latin','it-IT']];
+
+// Older phones may not have the donkey emoji; fall back to the horse face.
+(function(){ try {
+  const c = document.createElement('canvas'); c.width = c.height = 20; const x = c.getContext('2d');
+  x.textBaseline = 'top'; x.font = '16px sans-serif'; x.fillText('🫏', 0, 0);
+  const d = x.getImageData(0,0,20,20).data; let colored = false;
+  for (let i=0;i<d.length;i+=4){ if (d[i+3] && (Math.abs(d[i]-d[i+1])>20 || Math.abs(d[i+1]-d[i+2])>20)) { colored = true; break; } }
+  if (!colored) A[12].e = '🐴';
+} catch(e) {} })();
+
+// ---------- Saved progress ----------
+const KEY = 'kids-spanish-farm-v1';
+let S = {}; try { S = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { S = {}; }
+S.heard = S.heard || {}; 
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} };
+
+// ---------- Voices ----------
+const canSpeak = 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined';
+if (!canSpeak) document.getElementById('nosound').style.display = 'block';
+let voices = [];
+function loadVoices(){ try { voices = speechSynthesis.getVoices() || []; } catch(e) { voices = []; } }
+if (canSpeak) { loadVoices(); try { speechSynthesis.addEventListener('voiceschanged', loadVoices); } catch(e) {} }
+function pickVoice(tags){
+  for (const t of tags) { const v = voices.find(v => v.lang && v.lang.replace('_','-').toLowerCase() === t.toLowerCase()); if (v) return v; }
+  const base = tags[0].slice(0,2).toLowerCase();
+  return voices.find(v => v.lang && v.lang.toLowerCase().startsWith(base)) || null;
+}
+function say(text, lang){
+  if (!canSpeak) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    const tags = lang === 'es' ? ['es-MX','es-ES','es-US'] : [lang];
+    const v = pickVoice(tags);
+    u.lang = v ? v.lang : tags[0]; if (v) u.voice = v;
+    u.rate = 0.85; u.pitch = 1.1;
+    speechSynthesis.speak(u);
+  } catch(e) {}
+}
+
+// ---------- Learn ----------
+const grid = document.getElementById('grid');
+A.forEach((a,i) => {
+  const d = document.createElement('div'); d.className = 'card' + (S.heard[i] ? ' heard' : '');
+  d.innerHTML = '<span class="emo" role="button" aria-label="Hear ' + a.es + '">' + a.e + '</span><div class="word">' + a.es + '</div><div class="en">' + a.en + '</div>' +
+    '<button class="say">🔊 Escuchar</button><div class="other">' +
+    LANGS.map(l => '<button data-l="' + l[0] + '"><span>' + l[1] + ' ' + l[2] + '</span><b>' + a[l[0]] + '</b></button>').join('') + '</div>';
+  const hear = () => { say(a.es, 'es'); S.heard[i] = 1; save(); d.classList.add('heard'); };
+  d.querySelector('.emo').onclick = hear; d.querySelector('.say').onclick = hear;
+  d.querySelectorAll('.other button').forEach(b => b.onclick = () => { const l = LANGS.find(x => x[0] === b.dataset.l); say(a[l[0]], l[3]); });
+  grid.appendChild(d);
+});
+// One shared tip under the first card when multi-language is on
+(function(){ const s = document.createElement('small'); s.textContent = 'Latin is read with an Italian voice, like Church Latin. ★ Fun fact: French "lapin" is the odd one out for rabbit!'; grid.firstChild.querySelector('.other').appendChild(s); })();
+
+// ---------- Toggle ----------
+const sw = document.getElementById('multi');
+function setMulti(on){ document.body.classList.toggle('multi', on); sw.setAttribute('aria-checked', on ? 'true' : 'false'); S.multi = on; save(); }
+sw.onclick = () => setMulti(!document.body.classList.contains('multi'));
+setMulti(!!S.multi);
+
+// ---------- Tabs ----------
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('main section').forEach(s => s.classList.toggle('on', s.id === t.dataset.s));
+  if (t.dataset.s === 'match') newMatch();
+  if (t.dataset.s === 'quiz') newQuiz();
+  window.scrollTo(0, 0);
+});
+
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+// ---------- Match game ----------
+let pickA = null, left = 0, tries = 0;
+function newMatch(){
+  const set = shuffle(A.map((a,i) => i)).slice(0, 6);
+  const ca = document.getElementById('mcolA'), cb = document.getElementById('mcolB');
+  ca.innerHTML = ''; cb.innerHTML = ''; pickA = null; left = set.length; tries = 0;
+  document.getElementById('mwin').classList.remove('on');
+  shuffle(set).forEach(i => { const b = document.createElement('button'); b.className = 'm e'; b.textContent = A[i].e; b.dataset.i = i; b.setAttribute('aria-label', A[i].en); ca.appendChild(b);
+    b.onclick = () => { if (b.classList.contains('done')) return; ca.querySelectorAll('.m').forEach(x => x.classList.remove('sel')); b.classList.add('sel'); pickA = b; }; });
+  shuffle(set).forEach(i => { const b = document.createElement('button'); b.className = 'm'; b.textContent = A[i].es; b.dataset.i = i; cb.appendChild(b);
+    b.onclick = () => {
+      if (b.classList.contains('done')) return;
+      if (!pickA) { say(A[i].es, 'es'); return; }
+      tries++;
+      if (pickA.dataset.i === b.dataset.i) {
+        say(A[i].es, 'es'); pickA.classList.remove('sel'); pickA.classList.add('done'); b.classList.add('done'); pickA = null; left--;
+        if (!left) { const msg = tries <= 6 ? '⭐⭐⭐ Perfect matching!' : tries <= 9 ? '⭐⭐ Great job!' : '⭐ You did it!';
+          document.getElementById('mmsg').textContent = msg; document.getElementById('mwin').classList.add('on'); S.matchWins = (S.matchWins||0) + 1; save(); }
+      } else { b.classList.remove('bad'); void b.offsetWidth; b.classList.add('bad'); }
+    }; });
+}
+document.getElementById('magain').onclick = newMatch;
+
+// ---------- Quiz (5 questions) ----------
+let Q = [], qi = 0, score = 0, results = [];
+function newQuiz(){ Q = shuffle(A.map((a,i) => i)).slice(0, 5); qi = 0; score = 0; results = []; showQ(); }
+function dots(){ return '<div class="dots">' + Q.map((_,k) => '<i class="' + (results[k] === true ? 'ok' : results[k] === false ? 'no' : '') + '"></i>').join('') + '</div>'; }
+function showQ(){
+  const box = document.getElementById('qbox');
+  if (qi >= Q.length) {
+    const stars = '⭐'.repeat(score) + '☆'.repeat(5 - score);
+    if (score > (S.bestQuiz || 0)) S.bestQuiz = score; save();
+    box.innerHTML = dots() + '<div class="huge" style="font-size:56px">' + (score >= 4 ? '🏆' : score >= 2 ? '🎉' : '💪') + '</div><div class="qtext">' + (score >= 4 ? '¡Excelente!' : score >= 2 ? '¡Muy bien!' : '¡Buen intento!') + '</div><div class="stars">' + stars + '</div><p>' + score + ' of 5 · best ' + (S.bestQuiz || 0) + ' of 5</p><button class="big" id="qagain">Play again</button>';
+    document.getElementById('qagain').onclick = newQuiz; return;
+  }
+  const t = Q[qi];
+  const opts = shuffle([t].concat(shuffle(A.map((a,i) => i).filter(i => i !== t)).slice(0, 3)));
+  box.innerHTML = dots() + '<div class="qnum">Question ' + (qi + 1) + ' of 5</div><div class="qtext">¿Dónde está ' + A[t].es + '?</div><button class="say" id="qsay" style="max-width:260px">🔊 Escuchar otra vez</button><div class="qopts">' +
+    opts.map(i => '<button class="qo" data-i="' + i + '" aria-label="' + A[i].en + '">' + A[i].e + '</button>').join('') + '</div><div class="fb" id="qfb"></div>';
+  document.getElementById('qsay').onclick = () => say('¿Dónde está ' + A[t].es + '?', 'es');
+  say('¿Dónde está ' + A[t].es + '?', 'es');
+  let done = false;
+  box.querySelectorAll('.qo').forEach(b => b.onclick = () => {
+    if (done) return; done = true;
+    const ok = +b.dataset.i === t; results[qi] = ok; if (ok) score++;
+    box.querySelectorAll('.qo').forEach(x => { if (+x.dataset.i === t) x.classList.add('right'); else if (x === b) x.classList.add('wrong'); });
+    document.getElementById('qfb').textContent = ok ? '¡Sí! ' + A[t].e + ' ' + A[t].es : '¡Uy! Es ' + A[t].e + ' ' + A[t].es;
+    say(ok ? '¡Sí! ' + A[t].es : A[t].es, 'es');
+    setTimeout(() => { qi++; showQ(); }, 1500);
+  });
+}
+</script>
+</body></html>
