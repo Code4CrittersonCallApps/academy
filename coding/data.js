@@ -2,6 +2,7 @@ window.COURSE = {
 id:'coding', kicker:'Sheehan Academy · Adult course 1', title:'Code to Ship',
 pitch:'From zero to shipping small, useful things: a booking form, a spin wheel, a mini game, a script that does your boring chores. You will lean on AI assistants to write the code, and learn just enough to read it, fix it and put it online for free.',
 hours:'about 12–18 hours total',
+banner:'<a class="card cliff" href="../coding-map/" style="display:block;text-decoration:none;color:inherit;margin-top:0"><b class="lbl">New to the big picture?</b><span style="font-size:18px;font-weight:800;color:var(--gold)">🗺️ Start with the map →</span><br><span class="muted" style="font-size:14px">Coding: Lay of the Land. 10 bite-size modules on which language does what, the tool stack, and reading code like a chart.</span></a>',
 cliff:[
  'You do not need to memorize syntax. You need to know what the pieces are called, describe what you want clearly, and check that it works.',
  'Every module ends in something real: a page, a form, a game, a script or a live link you can text to someone.',

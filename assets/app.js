@@ -15,7 +15,7 @@
   function overview(){
     const done = C.modules.filter((m,i)=>prog['m'+(i+1)]).length;
     const pct = Math.round(100*done/C.modules.length);
-    let h = '<section class="hero"><div class="kicker">'+C.kicker+'</div><h1>'+C.title+'</h1><p>'+C.pitch+'</p>' +
+    let h = (C.banner||'') + '<section class="hero"><div class="kicker">'+C.kicker+'</div><h1>'+C.title+'</h1><p>'+C.pitch+'</p>' +
       '<p class="muted">'+C.modules.length+' modules · '+C.hours+' · free, self-paced, phone friendly</p>' +
       '<div class="bar" aria-label="progress"><i style="width:'+pct+'%"></i></div><p class="muted" style="font-size:13px">'+done+' of '+C.modules.length+' modules complete on this device</p>' +
       '<div class="row"><a class="btn" href="#m1">Start module 1</a><a class="btn ghost" href="#resources">All free resources</a><a class="btn ghost" href="'+BETA+'">Join the founding beta</a></div></section>';
