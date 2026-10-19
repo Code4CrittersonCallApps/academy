@@ -36,7 +36,7 @@ function home(){
   let h = '<section class="hero"><div class="kicker">'+C.kicker+'</div><h1>'+C.title+'</h1><p>'+C.pitch+'</p>' +
     '<p class="muted">'+mods.length+' modules · bite-size cards · tap to answer · progress saves on this device</p>' +
     '<div class="bar"><i style="width:'+Math.round(100*done/mods.length)+'%"></i></div><p class="muted" style="font-size:13px">'+done+' of '+mods.length+' modules complete</p>' +
-    '<div class="row"><a class="btn" href="#m'+nextUp()+'">'+(done?'Continue':'Start')+'</a><a class="btn ghost" href="#m'+C.drillModule+'">⚡ Think-faster drill</a><a class="btn ghost" href="'+BETA+'">Join the founding beta</a></div></section>';
+    '<div class="row"><a class="btn" href="#m'+nextUp()+'">'+(done?'Continue':'Start')+'</a>'+(C.drillModule?'<a class="btn ghost" href="#m'+C.drillModule+'">'+(C.drillLabel||'⚡ Drill')+'</a>':'')+'<a class="btn ghost" href="'+BETA+'">Join the founding beta</a></div></section>';
   h += '<div class="card cliff"><b class="lbl">Cliff notes</b><ul>'+C.cliff.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>';
   h += '<h2>Systems map</h2><div class="grid">';
   mods.forEach((m,i)=>{ const p = P['m'+(i+1)] || {}; const n = deckOf(m).length; const pct = p.done ? 100 : Math.round(100*(p.i||0)/n);
