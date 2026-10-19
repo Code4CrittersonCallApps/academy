@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spin wheel · Code to Ship example</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;background:#13202b;color:#fff;margin:0;padding:16px;text-align:center}
+a{color:#f0b90b}.wrap{max-width:420px;margin:auto}
+.stage{position:relative;width:min(88vw,360px);height:min(88vw,360px);margin:16px auto}
+canvas{width:100%;height:100%;transition:transform 4s cubic-bezier(.17,.67,.12,.99)}
+.pin{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:26px solid #f0b90b;z-index:2}
+button{font-size:18px;font-weight:800;padding:12px 26px;border-radius:12px;border:0;background:#f0b90b;color:#111}
+#result{font-size:20px;font-weight:700;min-height:30px;margin:12px 0}
+small{color:#9ab}
+</style></head><body><div class="wrap">
+<a href="../#m8">← Back to Module 8</a>
+<h1>Spin to win</h1>
+<div class="stage"><div class="pin"></div><canvas id="c" width="720" height="720"></canvas></div>
+<button id="spin">Spin</button>
+<div id="result"></div>
+<small id="odds"></small>
+</div>
+<script>
+// 1) Prizes and weights (weights add to 100 here, so they read as % odds).
+const prizes = [
+  {name:"Sticker",          weight:40, color:"#2f6b3a"},
+  {name:"Pony photo",       weight:25, color:"#b8860b"},
+  {name:"$5 off",           weight:20, color:"#7a3e9d"},
+  {name:"Free brush & treat",weight:10, color:"#c0392b"},
+  {name:"Free visit",       weight:5,  color:"#1f6fb2"}
+];
+const c = document.getElementById("c"), ctx = c.getContext("2d");
+// Slice size matches the odds, so what you see is what you get.
+const TOTAL = prizes.reduce((s,p)=>s+p.weight,0);
+let acc = 0; prizes.forEach(p=>{ p.start = acc; p.size = 2*Math.PI*p.weight/TOTAL; acc += p.size; });
+
+// 2) Draw the wheel once.
+prizes.forEach((p,i)=>{
+  ctx.beginPath(); ctx.moveTo(360,360); ctx.arc(360,360,350,p.start,p.start+p.size); ctx.fillStyle=p.color; ctx.fill();
+  ctx.save(); ctx.translate(360,360); ctx.rotate(p.start+p.size/2); ctx.fillStyle="#fff"; ctx.font="bold "+(p.weight<8?24:32)+"px system-ui"; ctx.textAlign="right"; ctx.fillText(p.name,330,12); ctx.restore();
+});
+document.getElementById("odds").textContent = "Odds: " + prizes.map(p=>p.name+" "+p.weight+"%").join(" · ");
+
+// 3) Pick the winner FIRST using the weights.
+function pick(){
+  const total = prizes.reduce((s,p)=>s+p.weight,0);
+  let r = Math.random()*total;
+  for(let i=0;i<prizes.length;i++){ r -= prizes[i].weight; if(r<0) return i; }
+  return prizes.length-1;
+}
+
+// 4) Then animate so that slice stops under the pin (pin is at the top = -90deg).
+let turns = 0;
+document.getElementById("spin").addEventListener("click", ()=>{
+  const i = pick();
+  const centerDeg = (prizes[i].start + prizes[i].size/2) * 180/Math.PI;
+  turns += 5;
+  const target = turns*360 + (270 - centerDeg);
+  c.style.transform = "rotate(" + target + "deg)";
+  document.getElementById("result").textContent = "Spinning…";
+  setTimeout(()=>{ document.getElementById("result").textContent = "You won: " + prizes[i].name + "!"; }, 4100);
+});
+</script></body></html>

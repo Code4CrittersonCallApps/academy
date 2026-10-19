@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking request form · Code to Ship example</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;background:#f7f3ea;color:#222;margin:0;padding:16px}
+.wrap{max-width:520px;margin:auto;background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 18px #0001}
+h1{font-size:22px;margin:0 0 4px}p.sub{margin:0 0 14px;color:#555}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;font-size:16px;padding:11px;border:1px solid #ccc;border-radius:10px;box-sizing:border-box}
+.err{color:#b00020;font-size:14px;min-height:18px}
+button{margin-top:16px;width:100%;font-size:17px;font-weight:700;padding:13px;border:0;border-radius:12px;background:#2f6b3a;color:#fff}
+#summary{display:none;margin-top:16px;background:#eef6ef;border-radius:12px;padding:12px}
+a.back{display:inline-block;margin-bottom:10px;color:#2f6b3a}
+</style></head><body>
+<div class="wrap">
+<a class="back" href="../#m7">← Back to Module 7</a>
+<h1>Book a mobile petting zoo</h1>
+<p class="sub">Example form from the Code to Ship course. It builds an email; nothing is stored.</p>
+<form id="f" novalidate>
+  <!-- Each label/input pair is one question. Right "type" = right phone keyboard. -->
+  <label for="name">Your name</label><input id="name" required autocomplete="name">
+  <div class="err" id="e-name"></div>
+  <label for="phone">Phone</label><input id="phone" type="tel" required autocomplete="tel">
+  <div class="err" id="e-phone"></div>
+  <label for="date">Event date</label><input id="date" type="date" required>
+  <div class="err" id="e-date"></div>
+  <label for="town">Town</label>
+  <select id="town" required><option value="">Choose…</option><option>Callahan</option><option>Yulee</option><option>Fernandina Beach</option><option>Hilliard</option><option>Jacksonville</option><option>Other</option></select>
+  <div class="err" id="e-town"></div>
+  <label for="kids">About how many kids?</label><input id="kids" type="number" min="1" max="200" required>
+  <div class="err" id="e-kids"></div>
+  <label for="hours">Hours</label><select id="hours"><option>1</option><option selected>2</option><option>3</option></select>
+  <label for="notes">Anything else? (optional)</label><textarea id="notes" rows="3"></textarea>
+  <button type="submit">See my estimate and send request</button>
+</form>
+<div id="summary"></div>
+</div>
+<script>
+// Business settings: change these for your business.
+const BUSINESS_EMAIL = "you@example.com";
+const BASE_PRICE = 300;      // first hour (example numbers only)
+const EXTRA_HOUR = 100;      // each extra hour
+const MIN_NOTICE_DAYS = 3;   // business rule
+
+const $ = id => document.getElementById(id);
+
+// Show or clear an error under a field.
+function setErr(id, msg){ $("e-"+id).textContent = msg || ""; return !msg; }
+
+// Our own business rules on top of the browser's basic checks.
+function validate(){
+  let ok = true;
+  ok = setErr("name", $("name").value.trim() ? "" : "Please add your name.") && ok;
+  ok = setErr("phone", $("phone").value.replace(/\D/g,"").length >= 10 ? "" : "Please add a 10-digit phone number.") && ok;
+  const d = $("date").value ? new Date($("date").value + "T12:00") : null;
+  const soonest = new Date(); soonest.setDate(soonest.getDate() + MIN_NOTICE_DAYS);
+  ok = setErr("date", !d ? "Pick a date." : (d < soonest ? "We need at least " + MIN_NOTICE_DAYS + " days notice." : "")) && ok;
+  ok = setErr("town", $("town").value ? "" : "Choose a town.") && ok;
+  const k = Number($("kids").value);
+  ok = setErr("kids", k >= 1 && k <= 200 ? "" : "Enter a number from 1 to 200.") && ok;
+  return ok;
+}
+
+function estimate(){ const h = Number($("hours").value); return BASE_PRICE + (h - 1) * EXTRA_HOUR; }
+
+$("f").addEventListener("submit", e => {
+  e.preventDefault();
+  if(!validate()) return;
+  const total = estimate();
+  const lines = [
+    "Name: " + $("name").value.trim(), "Phone: " + $("phone").value.trim(),
+    "Date: " + $("date").value, "Town: " + $("town").value,
+    "Kids: " + $("kids").value, "Hours: " + $("hours").value,
+    "Estimate: $" + total, "Notes: " + $("notes").value.trim()
+  ];
+  const mail = "mailto:" + BUSINESS_EMAIL + "?subject=" + encodeURIComponent("Booking request " + $("date").value) + "&body=" + encodeURIComponent(lines.join("\n"));
+  const s = $("summary"); s.style.display = "block";
+  s.textContent = "";                         // textContent: safe for user input
+  const p = document.createElement("p"); p.textContent = "Estimated total: $" + total + " (deposit $" + (total*0.25).toFixed(0) + ")"; s.appendChild(p);
+  const a = document.createElement("a"); a.href = mail; a.textContent = "Tap to send this request by email →"; s.appendChild(a);
+});
+</script></body></html>
